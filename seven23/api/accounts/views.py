@@ -12,6 +12,7 @@ from rest_framework_bulk import BulkModelViewSet
 from seven23.api.permissions import IsPaid
 from seven23.models.accounts.models import Account
 from seven23.models.accounts.serializers import AccountSerializer
+from seven23 import settings
 
 class AccountsList(BulkModelViewSet):
     """
@@ -34,3 +35,5 @@ class AccountsList(BulkModelViewSet):
         if isinstance(self.request.data, list):
             return True
         return False
+
+print("ALLOW_ACCOUNT_CREATION =", settings.ALLOW_ACCOUNT_CREATION)

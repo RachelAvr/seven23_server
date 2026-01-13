@@ -16,6 +16,9 @@ from django.core.management.utils import get_random_secret_key
 
 from seven23.logs import print_settings_report
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # Errors is an array of variable name as string
 # to display report at the end of settings
 errors = []
@@ -45,7 +48,9 @@ if not SECRET_KEY:
     errors.append("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'false').lower() == 'true'
+# DEBUG = os.environ.get('DEBUG', 'false').lower() == 'true' \dont forget to change back to false 
+DEBUG = True
+
 MAINTENANCE = os.environ.get('MAINTENANCE', 'false').lower() == 'true'
 
 # Allow public account creation
@@ -277,3 +282,4 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+

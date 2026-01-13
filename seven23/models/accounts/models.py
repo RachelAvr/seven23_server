@@ -8,6 +8,8 @@ from django.utils.translation import gettext_lazy as _
 
 from seven23.models.currency.models import Currency
 
+
+
 PERMISSIONS = (
     ('W', 'Read/write'), # Can just edit data
     ('R', 'Read'), # Can only access data
@@ -54,3 +56,6 @@ class AccountGuests(models.Model):
 
     def __str__(self):
         return u'%s' % (self.permissions)
+
+from .user_files import UserFile  # added so a user could save a file for a recipt
+    

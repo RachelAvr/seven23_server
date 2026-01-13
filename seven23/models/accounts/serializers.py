@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from seven23.models.accounts.models import Account, AccountGuests
 from seven23.models.currency.models import Currency
-
+from .models import UserFile
 from rest_framework_bulk import (
     BulkListSerializer,
     BulkSerializerMixin
@@ -35,3 +35,9 @@ class AccountGuestsSerializer(serializers.ModelSerializer):
     class Meta:
         model = AccountGuests
         fields = ('account', 'user', 'currency', 'permissions')
+
+class UserFileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserFile
+        fields = "__all__"  # או רשימה מפורשת
+        read_only_fields = ("account", "uploaded_by")
