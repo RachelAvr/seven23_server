@@ -10,3 +10,8 @@ docker-compose.yml
 .travis.yml
 .dockerignore
 *.db
+
+# Python virtual environment
+venv/
+venv311/
+.env/

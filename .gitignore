@@ -15,3 +15,8 @@ seven23_server.sublime-workspace
 *.db
 *.sqlite
 *.sqlite3
+
+# Python virtual environment
+venv/
+venv311/
+.env/
