@@ -58,4 +58,6 @@ class AccountGuests(models.Model):
         return u'%s' % (self.permissions)
 
 from .user_files import UserFile  # added so a user could save a file for a recipt
+from .user_notification import UserNotifications  # added so a user could save a file for a recipt
+
     

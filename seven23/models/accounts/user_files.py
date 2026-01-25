@@ -19,7 +19,7 @@ class UserFile(models.Model):
         null=True,
         blank=True
     )
-    title = models.CharField(_("Title"), max_length=255, blank=True)
+    title = models.CharField(_("title"), max_length=255, blank=True)
     file = models.FileField(upload_to="user_uploads/%Y/%m/%d/")
     amount=models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)

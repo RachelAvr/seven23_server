@@ -7,6 +7,7 @@ from rest_framework import serializers
 from seven23.models.accounts.models import Account, AccountGuests
 from seven23.models.currency.models import Currency
 from .models import UserFile
+from seven23.models.accounts.user_notification import UserNotifications
 from rest_framework_bulk import (
     BulkListSerializer,
     BulkSerializerMixin
@@ -36,8 +37,16 @@ class AccountGuestsSerializer(serializers.ModelSerializer):
         model = AccountGuests
         fields = ('account', 'user', 'currency', 'permissions')
 
+#here i added Serializer for the endpoints i've created
+
 class UserFileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserFile
-        fields = "__all__"  # או רשימה מפורשת
+        fields = "__all__"  
         read_only_fields = ("account", "uploaded_by")
+
+class UserNotificationsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model =UserNotifications
+        fields = "__all__"
+        read_only_fields =("account",)

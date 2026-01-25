@@ -10,7 +10,7 @@ from rest_framework import routers
 from seven23.api.views import api_init
 from seven23.api.users.views import revoke_token, email, delete_user
 from seven23.api.saas.views import StripeGenerateSession, StripeWebhook
-from seven23.api.files.views import UserFileListCreateView
+from seven23.api.files.views import UserFileListCreateView, UserFileRetrieveDestroyView
 
 
 from seven23 import settings
@@ -33,7 +33,9 @@ urlpatterns = [
     path(r'v1/user/delete', delete_user, name='api.user.delete'),
     path(r'v1/users/token', revoke_token, name='api.token'),
     path(r'v1/users/email', email, name='api.email'),
+    path(r"v1/notifications-settings/", include('seven23.api.notifications.urls')),
     path("v1/files/", UserFileListCreateView.as_view(), name="files"),
+    path("v1/files/<int:pk>/", UserFileRetrieveDestroyView.as_view()),
     path(r'v1/rest-auth/',    include('dj_rest_auth.urls')),
     
 ]

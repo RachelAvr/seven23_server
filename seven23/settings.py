@@ -55,7 +55,7 @@ MAINTENANCE = os.environ.get('MAINTENANCE', 'false').lower() == 'true'
 
 # Allow public account creation
 ALLOW_ACCOUNT_CREATION = \
-    os.environ.get('ALLOW_ACCOUNT_CREATION', 'false').lower() == 'true' or\
+    os.environ.get('ALLOW_ACCOUNT_CREATION', 'true').lower() == 'true' or\
     os.environ.get('ALLOW_ACCOUNT_CREATION', '0') == '1'
 if not ALLOW_ACCOUNT_CREATION:
     errors.append("ALLOW_ACCOUNT_CREATION")
